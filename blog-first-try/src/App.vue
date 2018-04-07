@@ -2,7 +2,7 @@
   <div id="app">
     <app-toolbar></app-toolbar>
       <router-view></router-view>
-    <app-footer></app-footer>
+    <app-footer style="position:absolute;z-index:-1"></app-footer>
   </div>
 </template>
 
