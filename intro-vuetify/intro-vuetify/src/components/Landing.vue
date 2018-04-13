@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="Reset">Reset</button>
+    <v-btn @click="Reset" color="orange">Reset</v-btn>
     <div style="border:1px solid #ccc">
         <Split ref="split1" :gutterSize="20" @onDragEnd="onDragEnd" style="height: 500px;">
             <SplitArea :size="60">
