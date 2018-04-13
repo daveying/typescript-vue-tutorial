@@ -1,42 +1,44 @@
 <template>
-  <div class="hello">
-      <div>
-      <split-pane>
-      <section slot="left">Left Pane</section>
-      <section slot="right">Right Pane</section>
-    </split-pane>
+  <div>
+    <button @click="Reset">Reset</button>
+    <div style="border:1px solid #ccc">
+        <Split ref="split1" :gutterSize="20" @onDragEnd="onDragEnd" style="height: 500px;">
+            <SplitArea :size="60">
+                <Split :gutterSize="15" direction="vertical">
+                    <SplitArea :size="50" :minSize="150">
+                        Sedd ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eodolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                    </SplitArea>
+                    <SplitArea :size="50" :minSize="100">
+                        Sedd ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eodolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                    </SplitArea>
+                </Split>
+            </SplitArea>
+            <SplitArea :size="40">
+                Sedd ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eodolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+            </SplitArea>
+        </Split>
     </div>
   </div>
 </template>
 
 <script>
-//import Split from '@/../node_modules/split.js';
-import SplitPane from 'vue-split-pane'
 export default {
-  name: 'Landing',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    data () {
+        return {
+        }
+    },
+    methods: {
+        onDragEnd (size) {
+            console.log('onDragEnd', size)
+        },
+        Reset () {
+            // console.log(this.$refs.split1.getSizes())
+            this.$refs.split1.reset()
+        }
     }
-  },
-  components: { SplitPane}
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style lang="less">
+    @import "../../node_modules/vue-split-panel/src/styles/index.less";
 </style>

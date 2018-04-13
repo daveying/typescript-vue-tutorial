@@ -6,9 +6,11 @@ import 'vuetify/dist/vuetify.min.css'
 
 import App from './App'
 import router from './router'
+import VueSplit from 'vue-split-panel'
 
 Vue.config.productionTip = false
 Vue.use(Vuetify)
+Vue.use(VueSplit)
 
 /* eslint-disable no-new */
 new Vue({
