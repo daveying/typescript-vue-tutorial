@@ -2,10 +2,17 @@
   <v-app>
     <v-navigation-drawer 
       v-model="sideNav"
+      fixed
       app
       >
       <v-list>
-        <v-list-tile v-for="item in menuItems" :key="item.title" @click="">
+        <v-list-tile 
+          v-for="item in menuItems" 
+          :key="item.title" 
+          @click=""
+          router
+          :to="item.link"
+          >
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -14,10 +21,6 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app>
-      <!-- <v-toolbar-side-icon 
-        @click="sideNav = !sideNav"
-        class="hidden-sm-and-up">
-      </v-toolbar-side-icon> -->
       <v-toolbar-items>
         <v-layout justify-space-around align-center>
           <v-avatar @click="sideNav = !sideNav" style="cursor: pointer" color="blue" size="35">
@@ -25,19 +28,31 @@
           </v-avatar>
         </v-layout>
       </v-toolbar-items>
-      <v-toolbar-title>Xingpeng Da</v-toolbar-title>
+      <v-toolbar-title style="cursor: pointer">
+        <router-link to="/" tag="span">
+          Xingpeng Da
+        </router-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-        <v-btn flat v-for="item in menuItems" :key="item.title">
+        <v-btn 
+          flat 
+          v-for="item in menuItems" 
+          :key="item.title"
+          router
+          :to="item.link"
+          >
           <v-icon left>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     
-    <main>
-
-    </main>
+    <v-content>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
@@ -47,11 +62,11 @@ export default {
     return {
       sideNav: false,
       menuItems: [
-        { icon: 'supervisor_account', title: 'View Meetups' },
-        { icon: 'room', title: 'Organize Meetup' },
-        { icon: 'person', title: 'Profile' },
-        { icon: 'face', title: 'Sign up' },
-        { icon: 'lock_open', title: 'Sign in' }
+        { icon: 'supervisor_account', title: 'View Meetups', link: '/meetups' },
+        { icon: 'room', title: 'Organize Meetup', link: '/meetup/new' },
+        { icon: 'person', title: 'Profile', link: '/profile' },
+        { icon: 'face', title: 'Sign up', link: '/signup' },
+        { icon: 'lock_open', title: 'Sign in', link: '/signin' }
       ]
     }
   },
