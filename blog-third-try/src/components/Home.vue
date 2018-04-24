@@ -33,23 +33,13 @@
 
 <script>
 export default {
-  data () {
-    return {
-      meetups: [
-        { imageUrl: 'https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200',
-          id: 'adsdweadwed',
-          title: 'Meetup in New York'
-        },
-        { imageUrl: 'https://media-cdn.tripadvisor.com/media/photo-s/0d/f4/db/9e/paris-in-one-day-sightseeing.jpg',
-          id: 'sdafwewswda',
-          title: 'Meetup in Paris'
-        }
-      ]
+  computed: {
+    meetups () {
+      return this.$store.getters.featuredMeetups
     }
   },
   methods: {
     onLoadMeetup (id) {
-      console.log('clicked')
       this.$router.push('/meetups/' + id)
     }
   }
