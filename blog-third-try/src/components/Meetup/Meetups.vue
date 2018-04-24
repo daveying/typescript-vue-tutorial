@@ -19,8 +19,8 @@
                   </div>
                 </v-card-title>
                 <v-card-actions>
-                  <v-btn flat>
-                    <v-icon>arrow_forward</v-icon>
+                  <v-btn flat to="/meetups/1">
+                    <v-icon light>arrow_forward</v-icon>
                     View Meetup
                   </v-btn>
                 </v-card-actions>

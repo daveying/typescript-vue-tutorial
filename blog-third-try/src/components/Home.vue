@@ -13,9 +13,10 @@
         <v-carousel-item 
           v-for="meetup in meetups" 
           :src="meetup.imageUrl" 
-          :key="meetup.id">
+          :key="meetup.id"
+          >
           <v-layout>
-            <v-flex xs12 class="text-xs-left title">
+            <v-flex xs12 class="text-xs-left title" style="cursor: pointer" @click="onLoadMeetup(meetup.id)">
               {{meetup.title}}
             </v-flex>
           </v-layout>
@@ -44,6 +45,12 @@ export default {
           title: 'Meetup in Paris'
         }
       ]
+    }
+  },
+  methods: {
+    onLoadMeetup (id) {
+      console.log('clicked')
+      this.$router.push('/meetups/' + id)
     }
   }
 }
