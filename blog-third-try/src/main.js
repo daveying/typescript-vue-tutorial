@@ -31,5 +31,6 @@ new Vue({
       projectId: 'vuejs-firebase-02-56db4',
       storageBucket: ''
     })
+    this.$store.dispatch('loadMeetups')
   }
 })
